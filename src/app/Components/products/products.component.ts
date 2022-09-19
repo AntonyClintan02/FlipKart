@@ -21,6 +21,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
    CartData:any='';
    cartId:any='';
    paramSub:Subscription;
+   btnHide:boolean = true;
 
    //Data object for listing items
    tableData: any[] = [];
@@ -133,6 +134,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     if(category.length && this.productData.length){
       if(category == 'all'){
         this.tableData = await this.productData;
+        this.btnHide = true
       }
       else{
         let data = await this.product$.getProductByCategory(category);
@@ -142,12 +144,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
           data2.push(doc.data());
         });
         this.tableData = data2;
+        this.btnHide = false;
       }      
     }
-  }
-
-  ngOnDestroy(): void{
-    if(this.paramSub)this.paramSub.unsubscribe();
   }
 
    // for snapShot  Pagination //
@@ -271,6 +270,10 @@ export class ProductsComponent implements OnInit, OnDestroy {
   readableDate(time) {
     var d = new Date(time); 
     return d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear();
+  }
+
+  ngOnDestroy(): void{
+    if(this.paramSub)this.paramSub.unsubscribe();
   }
 
 }
