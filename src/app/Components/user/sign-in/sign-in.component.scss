@@ -1,0 +1,37 @@
+
+#leftBackground{
+    background-color: #2874f0;
+    min-width: 206px;
+    height: 528px;
+}
+#rightCo{
+   padding-top: 100px;
+   min-width:295px;
+   height: 528px;
+}
+img{
+    padding-top: 100px;
+    text-align: center;
+    width: auto;
+}
+#form,#form2{
+    position: relative;
+    bottom: 77px;
+}
+#ForgetPass{
+    position: relative;
+    bottom: 15px;
+    left: 5px;
+}
+#closeButton{
+    position: relative;
+    bottom: 106px;
+    left: 293px;
+    background: 0;
+    color: white;
+    border: 0px;
+    font-weight: bolder;
+    font-size: 25px;
+    font-stretch: extra-expanded;
+}
+

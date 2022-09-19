@@ -1,0 +1,61 @@
+import { Injectable } from '@angular/core';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { BehaviorSubject, map } from 'rxjs';
+import { Product } from '../Modals/product.modal';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class CartService {
+  private dbpath='user'
+
+  data:AngularFirestoreCollection<any>
+public search =new BehaviorSubject<string>("");
+ 
+private dbPath =  '/Cart';
+ cartRef: AngularFireList<Product> = null;
+
+  constructor(private db: AngularFireDatabase,private dbs: AngularFirestore) {
+    this.cartRef= db.list(this.dbPath);
+    this.data = this.dbs.collection(this.dbpath)
+
+
+
+  }
+ 
+ getCart(){
+    return this.cartRef.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    )
+ }
+ 
+ addCart(uid,product:Product)
+ {
+  this.data.doc(uid).collection('cart').add(product)
+    //  this.cartRef.push(product);
+     
+ }
+
+deleteCart(id:any)
+{
+  return this.cartRef.remove(id);
+}
+
+deleteAll()
+{
+  return this.cartRef.remove();
+}
+updateTotal(id:string, value:any )
+{
+    return this.cartRef.update(id, value);
+}
+
+}
+

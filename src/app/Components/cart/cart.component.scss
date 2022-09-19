@@ -1,0 +1,101 @@
+#card{
+    height: 60vh;
+    margin: 25px;
+    padding: 25px;
+}
+.card-title{
+    margin: 5px;
+}
+.card-title:hover{
+     color: dodgerblue;
+     transition:color 0.5s;
+}
+
+.card-body{
+     position: absolute;
+     top:50%;
+     left: 50%;
+     transform: translate(-50%,-50%);
+     text-align: center;
+   
+}
+
+img{
+    height: 162px;
+    width: 250px;
+    margin: 20px;
+}
+h5{
+    font-weight: 400;
+}
+.btn-warning{
+    background-color: #FB641B !important;
+}
+#imageSide{
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+    float: left;
+    margin: 10px;
+    margin-left: 0px;
+    margin-top: 35px;
+}
+
+li{
+    padding: 5px;
+    margin-left: 20px;
+    color: grey;
+}
+
+.list-group-item{
+    border-bottom: #ccc;
+}
+.float-end{
+    padding-right: 20px;
+    color: #388e3c;
+}
+#card2{
+    min-width:400px;
+    position:sticky;
+    top: 50px;
+}
+.buttonMinus,.buttonPlus{
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(#fff,#f9f9f9);
+    display: inline-block;
+    border: 1px solid #c2c2c2;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 50%;
+    padding-top: 1px;
+    line-height: 1;
+}
+#textBox{
+    display: inline-block;
+    padding: 3px 6px;
+    width: calc(100% - 60px);
+    height: 100%;
+    width: 46px;
+    height: 28px;
+    border-radius: 2px;
+    background-color: #fff;
+    border: 1px solid #c2c2c2;
+    margin: 0 5px;
+}
+#PlaceOrder{
+    float: right;
+    margin: 10px;
+    background-color: #fb641b !important;
+   
+}
+ #btn{
+background-color:#ffffff !important ;
+color: black;
+font-size: 18px;
+border-color: #fff;
+cursor: pointer;
+}
+#btn:hover{
+    color:#287bf3;
+}

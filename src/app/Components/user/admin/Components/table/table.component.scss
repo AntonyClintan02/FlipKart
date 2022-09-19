@@ -1,0 +1,14 @@
+.tableRow{
+    background-color: #2874f0;
+    color: white;
+}
+.textShrink{
+    // white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 10ch;
+    font-weight: 420;
+}
+#btnAdd{
+    background-color: #fb641b !important;
+}

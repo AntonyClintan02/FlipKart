@@ -1,0 +1,88 @@
+<ng-container *ngIf="product.length!=0">
+<div class="row mt-3">
+  <div class="col md-8 ms-5" style="border: 1px solid #ddd; min-width: 824px;background-color:#ffffff;">
+ <ng-container *ngFor="let item of product; let i = index">
+    <div class="container-md">
+      <div class="card-table my-3" style="width:auto;">
+        <div class="row g-0">
+          <div class="col-md-2">
+            <img
+              id="imageSide"
+              src="{{item.image}}"
+              alt="Trendy Pants and Shoes"
+              class="img-fluid"
+            />
+            <div class="container">
+              <button class="buttonMinus" [disabled]="item.quantity == 1" (click)="decreaseQuantity(item)">-</button>
+          
+              <input type="text" id="textBox" value="{{item.quantity}}" style="text-align: center;">
+  
+          
+           <button class="buttonPlus" [disabled]="item.quantity == 5" (click)="increaseQuantity(item)">+</button>
+            </div>
+       
+          </div>
+          <div class="col-md-9" style="padding:30px ;">
+              <p class="card-title" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;color: black;">
+                  {{item.title}} <p>
+                <p class="text-muted">Product Details</p>
+              <p class="text-muted" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                   {{item.description}}</p>
+              <p style="color:dodgerblue">Price ${{item.price}}</p>
+
+              <a  id="btn" (click)="openRemoveItemModal(item.key)">Remove</a>&nbsp;&nbsp;
+              <a id="btn" routerLink="/products">Shop More</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+     <hr>
+  </ng-container>
+
+
+</div>
+<div class="col md-4 ">
+
+<div class="card md-3" id="card2" >
+  <div class="card-header ">
+     <strong tyle="color:gray; font-size:18px; font-weight: 500;">Price Details</strong> 
+  </div>
+    <ul class="list-group list-group-light list-group-small">
+      <li class="list-group-item px-3"> Price <span class="float-end">${{ grandTotal | number : '1.2-2'}}</span> </li>
+      <li class="list-group-item px-3">Discount <span class="float-end">No Discount</span> </li>
+      <li class="list-group-item px-3">Delivery Charges <span class="float-end">Free</span> </li>
+    </ul>
+  <div class="card-footer bg-light px-3">Grand Total <span class="float-end">${{grandTotal | number : '1.2-2'}}</span> </div>
+  <div>
+    <button class="btn btn-info text-light" id="PlaceOrder">
+       <i class="fa-solid fa-bolt-lightning m-2">  Place Order </i>
+       {{loader}}
+      </button>
+  </div>
+</div>
+</div>
+</div>
+</ng-container>
+
+
+<ng-container *ngIf="product.length==0">
+    <div class="container">
+        <div class="card" id="card">
+          <div class="card-head">
+            <h5 class="card-title"><b>My Cart</b></h5>
+          </div>
+          <div class="card-body">
+            <img
+              src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
+              alt=""/>
+            <h5>Your cart is empty</h5>
+            <p>Add item to it now</p>
+            <button type="button" routerLink="/products" class="btn btn-warning">Shop now</button>
+          </div>
+        </div>
+      </div>
+</ng-container>
+
+
+<!-- Modal -->

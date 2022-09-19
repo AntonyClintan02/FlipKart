@@ -1,0 +1,30 @@
+.card img{
+    height: 180px;
+    width:auto;
+    padding: 0px;
+    margin: 30px;
+    position: static;
+    transition: 0.3s ease-in-out;
+}
+.card img:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+.card{
+    padding: 20px;
+    margin: 40px;
+}
+ #inputbox {
+    display: inline-block;
+    padding: 3px 6px;
+    width: calc(100% - 60px);
+    height: 100%;
+    width: 46px;
+    height: 28px;
+    border-radius: 2px;
+    background-color: #fff;
+    border: 1px solid #c2c2c2;
+    margin: 0 5px;
+    text-align: center;
+}
+   

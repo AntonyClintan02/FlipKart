@@ -1,0 +1,83 @@
+<div class="modal-header" style="background-color: #287bf3; color: white;">
+  <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
+  <button
+    type="button"
+    class="btn-close btn-close-white"
+    aria-label="Close"
+    (click)="modalRef.close()"
+  ></button>
+</div>
+<div class="modal-body">
+  <!-- Form -->
+<form [formGroup]="formAdd" id="form" (ngSubmit)="addData()" >
+    <div class="row my-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Product Name</label>
+      <div class="col-sm-10">
+        <input 
+        type="text" 
+        class="form-control" 
+        id="productName1"
+        name="title"
+        formControlName="title"
+        >
+      </div>
+    </div>
+    <div class="row mb-3">  
+      <label for="inputPassword7" class="col-sm-2 col-form-label">Category</label>
+      <div class="col-sm-10">
+        <input 
+        type="text" 
+        class="form-control" 
+        id="category"
+        name="category"
+        formControlName="category"
+        >
+      </div>
+    </div>
+    <div class="row mb-3">  
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <textarea rows = "4" cols = "40"
+        class="form-control" 
+        id="description1"
+        name="description"
+        formControlName="description" >
+       </textarea>
+      </div>
+    </div>
+    <div class="row mb-3">  
+        <label for="inputPassword3" class="col-sm-2 col-form-label"> Price</label>
+        <div class="col-sm-10">
+          <input 
+          type="number" 
+          class="form-control" 
+          id="price1"
+          name="price"
+          size="6"
+          formControlName="price"
+          >
+        </div>
+      </div>
+      <div class="row mb-3">  
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Image Url</label>
+        <div class="col-sm-10">
+          <input 
+          type="text" 
+          class="form-control" 
+          id="imageUrl1"
+          name="image"
+          formControlName="image"
+          >
+        </div>
+      </div>
+      <div style="margin-top: 50px;">
+        <button type="submit" class="btn btn-primary me-1" [disabled]="!formAdd.valid">Submit</button>
+        <button type="button" class="btn btn-secondary " style="background-color:#fb641b !important;" (click)="modalRef.close()">
+          Cancel</button>
+      </div>
+     
+    </form>   
+</div>
+
+<!-- //for delete See Table Component// -->
+

@@ -1,0 +1,127 @@
+<div class="row">
+  <div class="col-2" id="leftBackground">
+    <p
+      style="
+        color: white;
+        padding-top: 40px;
+        font-size: 20px;
+        font-weight: bold;
+      "
+    >
+      <span style="margin-top: 50px" *ngIf="!isLogin"> Login</span>
+      <span style="margin-top: 50px" *ngIf="isLogin"> Sign up</span>
+    </p>
+    <p style="color: white; padding-top: 40px">
+      <span>Get access to your Orders, Wishlist and Recommendations</span>
+    </p>
+    <img
+      src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100"
+      alt=""
+    />
+  </div>
+  <div class="col-6" id="rightCo">
+    <!-- close button -->
+    <div>
+      <button type="button" id="closeButton" (click)="close()">X</button>
+    </div>
+      <div class="container" *ngIf="!isLogin">
+      <form [formGroup]="Loginform" id="form" (ngSubmit)="logIn()">
+        <!-- Email input -->
+        <div class="form">
+          <label class="form-label" for="form2Example1">Email address</label>
+          <input
+            type="email"
+            id="form2Example1"
+            class="form-control"
+            name="email"
+            formControlName="email"
+          />
+        </div>
+
+        <!-- Password input -->
+        <div class="form mt-2">
+          <label class="form-label" for="form2Example2">Password</label>
+          <input
+            type="password"
+            id="form2Example2"
+            class="form-control"
+            name="password"
+            formControlName="password"
+          />
+        </div>
+
+        <!-- Submit button -->
+        <div class="col mt-4">
+          <button type="submit" class="btn btn-primary btn-block mb-4">
+            log in 
+          </button>
+        </div>
+        <!-- forget Passwoer -->
+        <div id="ForgetPass">
+          <a href="#!">Forgot password?</a>
+        </div>
+
+        <div>
+          <span style="padding-left: 100px; font-weight: bolder">OR</span>
+        </div>
+        <!-- Singun up Button -->
+        <div>
+        </div>
+        <button type="button" class="btn btn-light btn-block mt-3" (click)="switchLogInAndSignUp()"> 
+          Sign up
+        </button>
+        <!-- <div>
+          <button type="button" class="btn btn-primary btn-block mt-5" routerLink="admin" (click)="openModal()"> Admin Login </button>
+        </div> -->
+      </form>
+    </div>
+
+
+     <!-- Register Form -->
+    <div class="container" *ngIf="isLogin">
+      <form [formGroup]="registerForm" id="form2" (ngSubmit)="register()">
+        <!-- Email input -->
+        <div class="form">
+          <label class="form-label" for="form2Example11">Email address</label>
+          <input
+            type="email"
+            id="form2Example11"
+            class="form-control"
+            name="emails"
+            formControlName="emails"
+          />
+        </div>
+
+        <!-- Password input -->
+        <div class="form mt-2">
+          <label class="form-label" for="form2Example21">Password</label>
+          <input
+            type="password"
+            id="form2Example21"
+            class="form-control"
+            name="passwords"
+            formControlName="passwords"
+          />
+        </div>
+
+        <!--reenter Password input -->
+        <div class="form mt-2">
+          <label class="form-label" for="form2Example22">Re-Enter Password</label>
+          <input
+            type="password"
+            id="form2Example22"
+            class="form-control"
+            name="reEnterPassword"
+            formControlName="reEnterPassword"
+          />
+        </div>
+
+        <!-- Submit button -->
+        <div class="col mt-4">
+          <button type="submit" class="btn btn-warning btn-block mb-4" style="background-color: #fb641b !important;">
+            Sign up
+          </button>
+        </div>
+      </form>
+    </div>
+</div>

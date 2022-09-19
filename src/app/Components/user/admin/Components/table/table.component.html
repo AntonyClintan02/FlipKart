@@ -1,0 +1,32 @@
+<div class="container">
+  <button class="btn btn-primary mt-5" id="btnAdd" (click)="openModalAdd()"><i class="fa-solid fa-plus-circle"></i> Add </button>
+  
+  <table class="table mt-2 text-center " style="height: 400px;">
+      <thead>
+          <tr class = 'tableRow'>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+         </thead>
+         <tbody>
+           <tr *ngFor="let value of product | paginate: { itemsPerPage:itemsPerPage, currentPage: currentPage } let i =index">
+             <td  class="textShrink" >  {{  (itemsPerPage * (currentPage - 1) + i )+1 }}
+             </td>
+             <td class="textShrink">{{value.title | slice:0:30}}...</td>
+             <td class="textShrink">{{value.description | slice:0:30}}...</td>
+             <td class="textShrink">$ {{value.price}}</td>
+             <td>
+              <i class="fas fa-edit" style="color:green; font-size: 20px; padding-right: 10px;" (click)="openModalEdit(value.uid)"></i> 
+              <i class="fa-solid fa-trash-can m-2" style="color:rgba(255, 0, 0, 0.692);font-size: 20px;" (click)="openModalDelete(value.uid)">  </i> 
+              <i class="fa solid fa-eye m-2" style=" color:#fb641b;font-size: 20px;" (click)="openModalDisplay( (itemsPerPage * (currentPage - 1) + i ))"></i>
+             </td>
+           </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="currentPage = $event" class="pagination justify-content-center mt-4">
+    </pagination-controls>
+
+  

@@ -1,0 +1,19 @@
+input{
+    border-radius: 8px;    
+    outline-width: thick;
+
+}
+label{
+    color: black;
+}
+input.ng-touched.ng-invalid {
+    border-color:rgb(236, 53, 154);
+}
+
+input.ng-touched.ng-valid {
+    border-color:rgb(9, 156, 9);
+}
+.modal-body{
+    // margin-top: 50px;
+    background-color: whitesmoke
+}
